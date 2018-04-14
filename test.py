@@ -6,8 +6,8 @@ def checkEven(i):
         return True
     else:
         return False
-
-for i in range(10):
+max = 10
+for i in range(max):
     if(checkEven(i)):
         print("偶数")
     else:
