@@ -10,6 +10,21 @@
 # すべての蟻が竿から落ちるまでにかかる最小の時間と最大の時間をそれぞれ求めてください．
 # -------------------------------------------------------------
 
+import sys
+
+# 入力値のチェック
+def validCheck():
+    errorFlg = False
+    if(lineSize < len(antList)):
+        print("蟻の数に対して、竿の長さが短すぎます")
+        errorFlg = True
+    if(filter(lambda ant:ant > lineSize or ant <= 0, antList)):
+        print("すでに転落している蟻がいます")
+        errorFlg = True
+
+    if(errorFlg):
+        sys.exit()
+
 # 最小を計算
 def minMove():
     minList = []
@@ -17,9 +32,11 @@ def minMove():
     for ant in antList:
         if(ant - midP > 0):
             minList.append("右")
+            # 右端までの距離
             outPoint = lineSize - ant
         else:
             minList.append("左")
+            # 左端までの距離
             outPoint = ant
 
         if(outPoint > maxCnt):
@@ -51,11 +68,12 @@ def maxMove():
     print('%d(%s)' % (maxCnt , ','.join(maxList)))
 
 # ---Main処理---
-lineSize = 10
-antList = [2,6,7]
+lineSize = 30
+antList = [2,15,16,29]
 midP = lineSize / 2
 
 # 位置の昇順にソート
 antList.sort()
+validCheck()
 minMove()
 maxMove()
