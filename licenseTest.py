@@ -13,11 +13,11 @@ separate()
 
 class ClassTest(object):
     """ クラス変数が共通(使いかた間違え) """
-    list = []
+    list_in_class = []
 
     def add_list(self, v):
         # self.list = [] これがあれば共通化はされない
-        self.list.append(v)
+        self.list_in_class.append(v)
 
 c1 = ClassTest()
 c2 = ClassTest()
@@ -26,7 +26,7 @@ c1.add_list('c1')
 c2.add_list('c2')
 
 # c1のリストにc2もはいっている
-for v in c1.list:
+for v in c1.list_in_class:
     print(v)
 
 separate()
@@ -56,3 +56,10 @@ while False:
     break
 else:
     print('else来た')
+
+separate()
+tuple1 = 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
+# tuple1[1]からtuple1[9]まで2づつコピー
+tuple2 = tuple1[1:9:2]
+
+print(tuple2)
