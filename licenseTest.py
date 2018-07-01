@@ -58,8 +58,15 @@ else:
     print('else来た')
 
 separate()
+
+# tupleは編集不可
 tuple1 = 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
 # tuple1[1]からtuple1[9]まで2づつコピー
 tuple2 = tuple1[1:9:2]
 
 print(tuple2)
+separate()
+separate()
+separate()
+
+print('2018/06/30 Python3エンジニア認定試験合格')
